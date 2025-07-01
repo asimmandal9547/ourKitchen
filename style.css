@@ -1,0 +1,431 @@
+:root {
+  --saffron: #FF6F00;
+  --turmeric: #F5AB35;
+  --deep-red: #8A1538;
+  --cream: #FFF8E1;
+  --dark: #262626;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--dark);
+}
+
+/* ---------- Header ---------- */
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--deep-red);
+  text-decoration: none;
+}
+
+.logo i {
+  color: var(--saffron);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--saffron);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+@media(max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background: #fff;
+    height: 100%;
+    width: 200px;
+    padding-top: 4rem;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  nav.show ul {
+    right: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background: url('images/headerimage.jpg') center/cover no-repeat;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* Responsive Hero Text */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ---------- Section Base ---------- */
+section {
+  padding: 4rem 2rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--deep-red);
+}
+
+/* ---------- Top Food Menu ---------- */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.food-card {
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.food-card:hover {
+  transform: translateY(-6px);
+}
+
+.food-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.food-card-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.food-card-content h3 {
+  color: var(--saffron);
+  margin-bottom: 0.5rem;
+}
+
+.price-tag {
+  color: var(--deep-red);
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.thali-list {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+/* ---------- Special Occasion ---------- */
+.special {
+  background: var(--turmeric);
+  color: #000;
+  border-radius: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  overflow: hidden;
+}
+
+.special img {
+  flex: 1 1 250px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.special-content {
+  flex: 2 1 300px;
+  padding: 2rem;
+}
+
+.special-content h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--deep-red);
+}
+
+.special-content p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Weekly Menu ---------- */
+.weekly-menu {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 4rem 2rem;
+}
+
+.weekly-menu h2 {
+  text-align: center;
+  color: var(--turmeric);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-day {
+  background: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.menu-day:hover {
+  transform: translateY(-5px);
+}
+
+.menu-day h3 {
+  margin-bottom: 1rem;
+  color: var(--saffron);
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.menu-day ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.menu-day ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* ---------- Coming Soon ---------- */
+.coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.coming-soon h3 {
+  font-size: 1.5rem;
+  color: var(--saffron);
+}
+
+.coming-soon p {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* ---------- Area We Serve ---------- */
+.serve {
+  background: url('images/headerimage.jpg') center/cover fixed;
+  position: relative;
+  color: #fff;
+}
+
+.serve::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.serve-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.serve-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.serve-item {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.75rem 1rem;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: #111;
+  color: #ddd;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.footer-info, .footer-map, .footer-social {
+  flex: 1 1 250px;
+}
+
+.footer-info h4 {
+  color: var(--saffron);
+  margin-bottom: 1rem;
+}
+
+.footer-info p {
+  line-height: 1.6;
+}
+
+.footer-social a {
+  color: #ddd;
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--saffron);
+}
+
+/* ---------- WhatsApp Floating Button ---------- */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+}
