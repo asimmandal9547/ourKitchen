@@ -18,3 +18,23 @@ document.querySelectorAll('nav a').forEach(link => {
     }
   });
 });
+
+
+/* Custom animated cursor */
+window.addEventListener('DOMContentLoaded', () => {
+  // Create the cursor element
+  const cursor = document.createElement('div');
+  cursor.id = 'custom-cursor';
+  cursor.innerHTML = `<img src="images/cursor.png" width="32" height="32" alt="cursor">`;
+  document.body.appendChild(cursor);
+
+  // Follow the mouse
+  document.addEventListener('mousemove', e => {
+    cursor.style.top  = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
+  });
+
+  // Optional: shrink on click for feedback
+  document.addEventListener('mousedown', () => cursor.style.transform += ' scale(0.8)');
+  document.addEventListener('mouseup',   () => cursor.style.transform  = 'translate(-50%, -50%)');
+});

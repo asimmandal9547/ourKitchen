@@ -335,6 +335,18 @@ section h2 {
   opacity: 0.8;
 }
 
+.coming-soon a {
+  font-weight: 600;
+  color: #FF0000;
+  transition: color 0.3s ease;
+}
+
+.coming-soon a:hover {
+  color: #b30000;
+  text-decoration: none;
+}
+
+
 /* ---------- Area We Serve ---------- */
 .serve {
   background: url('images/headerimage.jpg') center/cover fixed;
@@ -429,3 +441,25 @@ footer {
 .whatsapp-btn:hover {
   transform: scale(1.05);
 }
+
+
+/* ---------- Custom Animated Cursor ---------- */
+html, body { cursor: none; }           /* hide real cursor */
+
+#custom-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 32px; height: 32px;
+  transform: translate(-50%, -50%);   /* centre on pointer */
+  pointer-events: none;               /* clicks pass through */
+  z-index: 9999;
+  animation: hueShift 4s linear infinite;
+}
+
+/* subtle pulsing hue cycle */
+@keyframes hueShift {
+  0%   { filter: hue-rotate(0deg)   drop-shadow(0 0 2px #fff6); }
+  50%  { filter: hue-rotate(180deg) drop-shadow(0 0 4px #fffa); }
+  100% { filter: hue-rotate(360deg) drop-shadow(0 0 2px #fff6); }
+}
+
